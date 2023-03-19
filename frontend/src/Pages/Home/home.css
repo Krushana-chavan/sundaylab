@@ -18,7 +18,7 @@
     flex-direction: column;
     box-sizing: border-box;
     align-items: stretch;
-    z-index: 10;
+    z-index: 1;
     height: 100vh;
     flex-grow: 0;
     top: 0;
@@ -145,12 +145,16 @@
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid gray;
-    padding-bottom: 15px;
+    /* padding-bottom: 15px; */
+      
 }
 
 .comment-part > input{
     border: none;
     outline: none;
+    width:100%;
+    margin-left:-1rem;
+    padding:8px;
 }
 .comment-part > button{
     border: none;
@@ -158,6 +162,7 @@
     cursor: pointer;
     background-color: #fff;
     color: rgb(0, 149, 246);
+    outline:none;
 }
 
 .Home-righ-part {
@@ -276,4 +281,17 @@
     left:14%;
 
 
+}
+.color{
+    color:gray;
+    cursor:pointer;
+}
+
+.viewAll-com{
+    position: fixed;
+    top: 2%;
+    width: 50vw;
+    height: 97vh;
+    z-index: 1000000px;
+    left:20%;
 }

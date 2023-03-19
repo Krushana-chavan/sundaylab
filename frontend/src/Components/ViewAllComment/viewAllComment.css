@@ -1,0 +1,129 @@
+.viewAllComment-container{
+    width: 100%;
+    height: 600px;
+    margin: auto;
+    display: flex;
+    box-shadow: 0 0 13px rgb(220, 220, 220);
+    position: relative;
+    background-color: white;
+    border-radius: 10px;
+    z-index: 1000;
+}
+.viewAll-image{
+    border: 1px solid teal;
+    width: 45%;
+    height: 100%;
+}
+.viewAll-image>img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.secon-viewAll{
+    width: 55%;
+    margin-left: 10px;
+    /* margin-left: auto;
+    margin-right: auto; */
+}
+.viewAll-pro{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 10px;
+}
+.viewAll-pro > div:first-child > img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
+.viewAll-pro>div:first-child{
+    /* width: 40%; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.viewAll-propName{
+    margin-left: 10px;
+}
+.viewAll-propName > div >p:first-child{
+    font-weight: 500;
+    
+}
+.viewAll-propName > div:first-child > small{
+    margin-left: 10px;
+}
+.viewAll-propName > div:first-child{
+    display: flex;
+}
+.mb{
+    margin-bottom: 1rem;
+}
+.viewAll-propName > p:last-child{
+    font-size: 13px;
+    color: gray;
+    margin-top: 0.3rem;
+}
+.boredr{
+    margin-top: 1rem;
+    opacity: 1;
+    border-top: 1px solid rgb(210, 208, 208);
+}
+.reply-section{
+    display: flex;
+    font-weight: normal;
+    font-size: 13px;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.3rem;
+}
+.reply-section > p{
+    cursor: pointer;
+    color: gray;
+}
+.cursor-pointer{
+    cursor: pointer!important;
+}
+.AllComment-Display{
+    height: 400px;
+    overflow: auto;
+    padding-right: 10px;
+}
+.viewAll-icon{
+    margin-top: .8rem;
+}
+
+.comment-part{
+    margin-top: 1rem;
+}
+.comment-viewAll{
+    margin-top:1rem;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.input-viewAll{
+    width:90%;
+}
+.input-viewAll > input{
+    width: 90%;
+    padding:8px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid gray;
+}
+.input-viewAll >button{
+    border: none;
+    outline: none;
+    background-color: white;
+    color:rgb(0, 149, 246);
+    cursor: pointer;
+}
+.cancelButton-ViewAlll{
+    position: absolute;
+    color: white;
+    top: 0;
+}

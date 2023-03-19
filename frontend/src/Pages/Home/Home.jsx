@@ -12,11 +12,22 @@ import { TbMessageCircle2 } from "react-icons/tb";
 import { BsSend, BsBookmark } from "react-icons/bs";
 import CreatePost from "../../Components/CreatePost/CreatePost";
 import { AuthContext } from '../../Context/AuthContextProvider';
+import ViewAllComment from '../../Components/ViewAllComment/ViewAllComment';
 
 
 const Home = () => {
-  const {setCreate, create} = useContext(AuthContext)
+  const { setCreate, create } = useContext(AuthContext);
+  const [text, setText] = useState("");
+  const [commentData, setCommentData] = useState([]);
+  const [seeComment, setSeeComment] = useState(false)
 
+
+  const handelClick = () => {
+    setCommentData([...commentData, text])
+    setText("")
+  }
+
+  console.log(commentData);
   const status = [
     { image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29ufGVufDB8fDB8fA%3D%3D&w=1000&q=80", name: "Manis_Kumar_Jaiswal" },
     { image: "https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cGVyc29ufGVufDB8fDB8fA%3D%3D&w=1000&q=80", name: "Roshan_Kumar" },
@@ -47,7 +58,6 @@ const Home = () => {
     slidesToScroll: 6,
   };
 
-  console.log(create)
   return (
     <div className='container'>
       <div className='leftMenu'>
@@ -102,9 +112,19 @@ const Home = () => {
                 <p>1 Like</p>
               </div>
 
+              <div>
+                <p className="color" onClick={()=>setSeeComment(true)}>View all {commentData.length} comments</p>
+              </div>
+
+              {
+                seeComment ? <div className="viewAll-com">
+                  <ViewAllComment setSeeComment = {setSeeComment}/>
+                </div>:null
+              }
+
               <div className='comment-part'>
-                <input type="text" placeholder='Add a comment...' />
-                <button>Post</button>
+                <input type="text" placeholder='Add a comment...' value={text} onChange={(e) => setText(e.target.value)} />
+                <button onClick={handelClick}>Post</button>
               </div>
             </div>
 
@@ -141,11 +161,23 @@ const Home = () => {
                 <p>1 Like</p>
               </div>
 
+              <div>
+                <p className="color" onClick={()=>setSeeComment(true)}>View all {commentData.length} comments</p>
+              </div>
+
+              {
+                seeComment ? <div className="viewAll-com">
+                  <ViewAllComment setSeeComment = {setSeeComment}/>
+                </div>:null
+              }
+
               <div className='comment-part'>
-                <input type="text" placeholder='Add a comment...' />
-                <button>Post</button>
+                <input type="text" placeholder='Add a comment...' value={text} onChange={(e) => setText(e.target.value)} />
+                <button onClick={handelClick}>Post</button>
               </div>
             </div>
+
+           
           </div>
 
 
@@ -206,7 +238,7 @@ const Home = () => {
       {
         create ? <>
           <div className="Create-post-in-home">
-            <CreatePost setCreate = {setCreate}/>
+            <CreatePost setCreate={setCreate} />
           </div>
         </> : null
       }
