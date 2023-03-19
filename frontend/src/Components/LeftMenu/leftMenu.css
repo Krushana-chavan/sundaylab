@@ -1,0 +1,82 @@
+.left-container{
+    z-index: 1;
+    border-right: 1px solid rgb(219, 219, 219);
+}
+.logo-left{
+    height: 73px;
+    display: flex;
+    align-items: flex-end;
+    padding: 1rem 3rem 1rem .5rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+.logo-left > img{
+    width: 100px;
+    cursor: pointer;
+}
+.contain{
+    padding-top: 8px;
+    height: 100vh;
+    padding-bottom: 20px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.icon-title, .profile-continer{
+    padding: 10px 3.5rem 10px 10px;
+    border-radius: 15px;
+    margin-bottom: .8rem;
+    
+}
+.icon-title:hover, .profile-continer:hover{
+    background-color: rgb(243, 243, 243);
+    cursor: pointer;
+}
+.font-size-icon{
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.incre{
+    font-size: 1.8rem !important;
+    cursor: pointer;
+}
+.incre + p{
+    margin-left: 13px !important;
+}
+.icon-title > a, .profile-continer > a{
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    color: #333;
+}
+.icon-title >a> p, .profile-continer>a> p{
+    margin-left: 1rem;
+    font-size: 16px;
+}
+.profile-continer > a > img{
+    border: 2px solid black;
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.profile-continer>a> p{
+    font-weight: 900;
+}
+.Hem-icon{
+    padding: 10px 3.5rem 10px 10px;
+    border-radius: 15px;
+    margin-bottom: .8rem;
+    margin-top: 3rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.Hem-icon:hover{
+    background-color: rgb(254, 253, 253);
+    cursor: pointer;
+}
