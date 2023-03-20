@@ -1,10 +1,10 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import LeftMenu from '../../Components/LeftMenu/LeftMenu'
 import Slider from "react-slick";
 import "../../SlickCSS/slick.css";
 import "../../SlickCSS/slickTheme.css";
 import "./home.css"
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { CgCopyright } from "react-icons/cg";
 import { FiMoreHorizontal } from "react-icons/fi";
 import { AiOutlineHeart } from "react-icons/ai";
@@ -13,21 +13,31 @@ import { BsSend, BsBookmark } from "react-icons/bs";
 import CreatePost from "../../Components/CreatePost/CreatePost";
 import { AuthContext } from '../../Context/AuthContextProvider';
 import ViewAllComment from '../../Components/ViewAllComment/ViewAllComment';
+import { useDispatch } from 'react-redux';
+import { GetAllPost } from '../../Redux/post/action';
 
 
 const Home = () => {
-  const { setCreate, create } = useContext(AuthContext);
+  const { setCreate,auth, create } = useContext(AuthContext);
   const [text, setText] = useState("");
   const [commentData, setCommentData] = useState([]);
-  const [seeComment, setSeeComment] = useState(false)
-
+  const [seeComment, setSeeComment] = useState(false);
+  const navigate=useNavigate()
+  const dispatch=useDispatch()
+  // console.log(auth)
+useEffect(()=>{
+  if(!auth){
+    navigate("/login")
+    }
+    dispatch(GetAllPost())
+},[auth,dispatch])
 
   const handelClick = () => {
     setCommentData([...commentData, text])
     setText("")
   }
 
-  console.log(commentData);
+  // console.log(commentData);
   const status = [
     { image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29ufGVufDB8fDB8fA%3D%3D&w=1000&q=80", name: "Manis_Kumar_Jaiswal" },
     { image: "https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cGVyc29ufGVufDB8fDB8fA%3D%3D&w=1000&q=80", name: "Roshan_Kumar" },

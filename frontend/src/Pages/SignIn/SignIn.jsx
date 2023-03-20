@@ -1,27 +1,37 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { AiFillFacebook } from "react-icons/ai";
 import { CgCopyright } from "react-icons/cg";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import "./signIn.css"
-
-
+import { useDispatch } from 'react-redux';
+import { SigninReq } from '../../Redux/Auth/action';
+import { AuthContext } from '../../Context/AuthContextProvider';
 const initialState = {
-  mobileNumber: "",
+  email: "",
   password: ""
 }
 
 const SignIn = () => {
-  const [signIn, setSignIn] = useState(initialState)
-
+  const [data, setData] = useState(initialState);
+  const { setAuth } = useContext(AuthContext);
+  const dispatch=useDispatch();
+  const navigate=useNavigate()
   const handelInputChange = (e) => {
     const {name, value} = e.target
-    setSignIn({...signIn, [name] : value})
+    setData({...data, [name] : value})
   }
-
   const handelSignIn = (e) =>{
     e.preventDefault();
-    console.log(signIn);
-    setSignIn(initialState)
+   dispatch(SigninReq(data)).then((res)=>{
+    if(res.type==='SIGNIN_SUCCESS_REQUEST'){
+      alert("Login Successful!");
+      setAuth(true)
+      navigate("/")
+    }else{
+      alert("Something went wrong!please try  again")
+    }
+   })
+    setData(initialState)
   }
   return (
     <>
@@ -31,8 +41,8 @@ const SignIn = () => {
         </div>
 
         <form className='signIn-form' onSubmit={handelSignIn}>
-          <input type="text" placeholder='Mobile Number or Email' name='mobileNumber' value={signIn.mobileNumber} onChange={handelInputChange} required />
-          <input type="text" placeholder='Password' name='password' value={signIn.password} onChange={handelInputChange} required />
+          <input type="text" placeholder='Mobile Number or Email' name='email' value={data.email} onChange={handelInputChange} required />
+          <input type="text" placeholder='Password' name='password' value={data.password} onChange={handelInputChange} required />
           <div className='SignIn-Btn'>
             <button>Sign in</button>
           </div>
